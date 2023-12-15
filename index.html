@@ -22,7 +22,7 @@
     <script defer type="module" src="./js/main.js"></script>
     <script defer type="module" src="./js/oneArticle/renderComments.js"></script>
     <script defer type="module" src="./js/oneArticle/makeNewComment.js"></script>
-    <script defer src="./js/onSignIn.js"></script>
+    <!-- <script defer src="./js/onSignIn.js"></script> -->
     <title>ItStudy</title>
   </head>
   <body class="body-page">
@@ -87,7 +87,7 @@
           <li class="nav-bar__item">
             <a href="#about" class="nav-bar__link">About us</a>
           </li>
-          <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+          <div class="g-signin2" data-onsuccess="onSignIn"></div>
         </ul>
       </nav>
       <div id="intro_block"></div>
@@ -675,6 +675,34 @@
     <footer class="footer-page">
       <p class="footer-page__title">ItStudy</p>
     </footer>
+    <script>
+      function onSignIn(googleUser) {
+        // získame profil používateľa
+        var profile = googleUser.getBasicProfile();
+
+        console.log('Úplné meno: ' + profile.getName());
+        console.log('Meno: ' + profile.getGivenName());
+        console.log('Priezvisko: ' + profile.getFamilyName());
+        console.log("Obrázok profilu: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+
+        // autorizačný token
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+
+        // zmeníme content element
+        document.querySelector("#content").innerHTML = "<p>Vitajte " + profile.getGivenName() + "! Kliknite pre <a href='#' onclick='signOut();'>odhlásenie</a>.</p>";
+      }
+
+      function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+          alert("Boli ste odhlásený...");
+          // znovu načítame stránku a zobrazíme tlačidlo pre prihlásenie
+          location.reload();
+        });
+      }
+    </script>
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.1/mustache.min.js"></script>
 </html>
