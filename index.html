@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en" class="page">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/normalize.css" media="screen" />
+    <link rel="stylesheet" href="../css/style.css" media="screen" />
+    <link rel="stylesheet" href="../css/printStyle.css" media="print" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script defer type="module" src="./js/renderFeedback.js"></script>
+    <script defer type="module" src="./js/renderArticles.js"></script>
+    <script defer type="module" src="./js/oneArticle/deleteOnArticle.js"></script>
+    <script defer type="module" src="./js/oneArticle/editOneArticle.js"></script>
+    <script defer type="module" src="./js/oneArticle/submitChangedArticle.js"></script>
+    <script defer type="module" src="./js/oneArticle/renderOneArticle.js"></script>
+    <script defer type="module" src="./js/routes.js"></script>
+    <script defer type="module" src="./js/main.js"></script>
+    <script defer type="module" src="./js/oneArticle/renderComments.js"></script>
+    <script defer type="module" src="./js/oneArticle/makeNewComment.js"></script>
+    <title>ItStudy</title>
+  </head>
+  <body class="body-page">
+    <header class="header-page">
+      <nav class="nav-bar">
+        <div class="logo">
+          <h1 class="logo__title">
+            <svg
+              class="logo__icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 612.001 612.001"
+            >
+              <g>
+                <g>
+                  <path
+                    d="M599.751,276.341L489.037,165.537c-7.924-7.924-18.451-12.288-29.65-12.288c-11.179,0-21.699,4.352-29.627,12.261
+			c-16.334,16.33-16.342,42.932-0.008,59.296l81.083,81.165l-81.079,81.109c-7.928,7.932-12.287,18.475-12.279,29.688
+			c0.007,11.191,4.37,21.707,12.283,29.594c7.92,7.92,18.444,12.279,29.639,12.279c11.202,0,21.729-4.359,29.639-12.279
+			l110.714-110.752C616.085,319.269,616.085,292.679,599.751,276.341z M589.092,324.962L478.378,435.714
+			c-5.068,5.072-11.809,7.865-18.979,7.865c-7.17,0-13.911-2.793-18.986-7.873c-5.068-5.053-7.856-11.777-7.864-18.945
+			c-0.008-7.178,2.788-13.934,7.867-19.016l86.399-86.438c2.943-2.943,2.943-7.713,0.004-10.652l-86.399-86.49
+			c-10.463-10.486-10.467-27.532-0.011-37.984c5.079-5.064,11.82-7.853,18.979-7.853c7.17,0,13.915,2.796,18.99,7.871
+			l110.714,110.805C599.552,297.465,599.552,314.492,589.092,324.962z"
+                  />
+                  <path
+                    d="M194.525,416.773c0.007-11.209-4.348-21.748-12.28-29.688l-81.075-81.109l81.09-81.173
+			c16.323-16.364,16.312-42.962-0.034-59.304c-7.92-7.897-18.437-12.246-29.612-12.246c-11.198,0-21.73,4.363-29.654,12.288
+			L12.25,276.334c-16.334,16.345-16.334,42.939,0.004,59.281l110.703,110.74c7.917,7.928,18.448,12.291,29.646,12.291
+			s21.722-4.355,29.62-12.264C190.147,438.484,194.518,427.968,194.525,416.773z M171.571,435.718
+			c-5.06,5.068-11.797,7.857-18.968,7.857s-13.915-2.793-18.987-7.871L22.914,324.962c-10.464-10.467-10.464-27.501,0-37.969
+			L133.62,176.196c5.079-5.075,11.824-7.871,18.994-7.871c7.159,0,13.896,2.785,18.964,7.837
+			c10.467,10.463,10.471,27.51,0.015,37.992l-86.407,86.494c-2.939,2.939-2.939,7.708,0.004,10.652l86.399,86.434
+			c5.079,5.086,7.875,11.842,7.867,19.021C179.446,423.925,176.654,430.654,171.571,435.718z"
+                  />
+                  <path
+                    d="M410.932,23.764c-4.726-1.76-9.657-2.653-14.665-2.653c-17.435,0-33.203,10.987-39.244,27.333l-180.595,485.89
+			c-3.918,10.502-3.508,21.9,1.165,32.104c4.668,10.191,13.014,17.939,23.482,21.801c4.725,1.76,9.653,2.652,14.646,2.652
+			c17.416,0,33.207-10.982,39.304-27.336L435.642,77.608C443.652,55.919,432.56,31.763,410.932,23.764z M421.504,72.37
+			L240.897,558.294c-3.907,10.479-14.024,17.521-25.177,17.521c-3.191,0-6.349-0.574-9.401-1.711
+			c-6.699-2.477-12.035-7.432-15.022-13.949c-2.992-6.529-3.256-13.828-0.739-20.562L371.156,53.681
+			c3.866-10.467,13.957-17.499,25.11-17.499c3.206,0,6.363,0.573,9.416,1.711C419.537,43.014,426.636,58.489,421.504,72.37z"
+                  />
+                </g>
+              </g>
+            </svg>
+            <a href="#istudy" class="logo__title-link">ItStudy</a>
+          </h1>
+        </div>
+        <ul class="nav-bar__list">
+          <li class="nav-bar__item">
+            <a href="#technologies" class="nav-bar__link">Technologies</a>
+          </li>
+          <li class="nav-bar__item">
+            <a href="#curriculum" class="nav-bar__link">Сurriculum</a>
+          </li>
+          <li class="nav-bar__item">
+            <a href="#articles" class="nav-bar__link">Articles</a>
+          </li>
+          <li class="nav-bar__item">
+            <a href="#feedback" class="nav-bar__link">Feedback</a>
+          </li>
+          <li class="nav-bar__item">
+            <a href="#about" class="nav-bar__link">About us</a>
+          </li>
+        </ul>
+      </nav>
+      <div id="intro_block"></div>
+      <!-- intros sectiion -->
+      <script id="template-istudy_intro" type="text/template">
+        <section class="intro intro_center">
+          <article class="intro__desc intro_center">
+            <h2 class="intro__title">Welcome to ItStudy</h2>
+            <p class="intro__text">
+              Embark on a transformative journey into the world of IT. With our
+              curated courses, learn from the best and become a pro in web
+              development, software engineering, and more.
+            </p>
+            <p class="intro__text">
+              Whether you're a beginner looking to start a new career or a
+              professional aiming to upgrade your skills, we have the right course
+              for you.
+            </p>
+          </article>
+        </section>
+      </script>
+      <script id="template-technologies_intro" type="text/template">
+        <section class="intro">
+          <article class="intro__desc">
+            <h2 class="intro__title">Technologies</h2>
+            <p class="intro__text">
+              we'll dive deep into the world of React, exploring its powerful
+              components and state management capabilities. Learn how to build
+              dynamic and responsive web applications with one of the most popular
+              frontend libraries.
+            </p>
+            <p class="intro__text">
+              Discover the intricacies of modern CSS frameworks like Bootstrap and
+              Tailwind CSS. Master the art of creating visually appealing and
+              mobile-responsive designs with ease and efficiency.
+            </p>
+            <p class="intro__text">
+              JavaScript ES6 and beyond will be at the forefront of our learning
+              journey. Grasp the fundamentals of asynchronous programming, arrow
+              functions, and other modern JS features to elevate your frontend
+              development skills.
+            </p>
+          </article>
+          <picture class="intro__img">
+            <source media="(max-width: 899px)" srcset="../img/techno-little.jpg" />
+            <source
+              media="(min-width: 1000px)"
+              srcset="../img/techno-default.jpg"
+            />
+            <img src="../img/techno-default.jpg" />
+          </picture>
+        </section>
+      </script>
+      <script id="template-curriculum_intro" type="text/template">
+        <section class="intro">
+          <article class="intro__desc">
+            <h2 class="intro__title">Curriculum</h2>
+            <p class="intro__text">
+              Dive into our comprehensive curriculum designed to equip you with
+              the latest in tech. From foundational concepts to advanced
+              techniques, our courses cover it all.
+            </p>
+            <p class="intro__text">
+              Our curriculum is updated regularly to ensure relevance in the
+              ever-evolving tech landscape. Learn from industry experts and gain
+              practical experience.
+            </p>
+            <p class="intro__text">
+              With a mix of theoretical knowledge and hands-on projects, you'll be
+              ready to tackle real-world challenges by the end of the course.
+            </p>
+          </article>
+          <picture class="intro__img curriculism-img">
+            <source
+              media="(max-width: 899px)"
+              srcset="../img/curriculism-little.jpeg"
+            />
+            <source
+              media="(min-width: 1000px)"
+              srcset="../img/curriculism-defaul.jpeg"
+            />
+            <img src="../img/curriculism-defaul.jpeg" />
+          </picture>
+        </section>
+      </script>
+      <script id="template-about_intro" type="text/template">
+        <section class="intro intro_center">
+          <article class="intro__desc intro_center">
+            <h2 class="intro__title">About Us</h2>
+            <p class="intro__text">
+              ItStudy is a platform for learning modern web development
+              technologies. Our mission is to provide quality education for anyone
+              aspiring to become a professional in this field.
+            </p>
+            <p class="intro__text">
+              Our team consists of experienced developers, designers, and
+              educators who are united by a single goal - to share their knowledge
+              and experience with the next generation of developers.
+            </p>
+            <p class="intro__text">
+              We believe that education should be accessible, interactive, and
+              practical. Our courses are designed to allow students to apply their
+              knowledge in real-world scenarios and develop their skills.
+            </p>
+          </article>
+        </section>
+      </script>
+      <!-- feedback section -->
+      <script id="template-feedback" type="text/template">
+        <section class="user-feedback">
+          <h2 class="user-feedback__title">User Feedback</h2>
+          <ul class="user-feedback__list">
+            <script id="feedback-template" type="x-tmpl-mustache">
+              <li class="user-feedback__item">
+                  <h4 class="user-feedback__name">{{ name }}</h4>
+                  <p class="user-feedback__date">{{ day }}</p>
+                  <p class="user-feedback__comment">{{ comment }}</p>
+              </li>
+            </script>
+          </ul>
+        </section>
+      </script>
+      <!-- article section -->
+      <script id="template-articles" type="text/template">
+          <section class="article_list">
+            <script id="article-template" type="x-tmpl-mustache">
+              <article class="article_item">
+                <h2 class="article_title"><a href="#article/{{id}}" class="article_link">{{title}}</a></h2>
+                <p class="article_author">
+                  by {{author}}
+                </p>
+              </article>
+            </script>
+            <div class="btn-section">
+              <button class="btn-nav prev-btn">prev</button>
+              <button class="btn-nav new-article-btn">make new</button>
+              <button class="btn-nav next-btn">next</button>
+            </div>
+          </section>
+      </script>
+      <script id="template-article-one" type="text/template">
+        <section class="own-article">       
+          <script id="article-one-template" type="x-tmpl-mustache">
+              <article class="own-article__item">
+                <h2 class="own-article__title">{{title}}</h2>
+                <p class="own-article__author">
+                  by {{author}}
+                </p>
+                <p class="own-article__content">
+                  by {{content}}
+                </p>
+                <img src="{{imageLink}}" alt="img" class="own-article__mg">
+                <p class="own-article__tags">
+                  Keywords: {{tags}}
+                </p>
+              </article>
+            </script>
+            <div class="btn-article">
+              <button class="btn-article_item change-btn">edit</button>
+              <button class="btn-article_item delete-btn">delete</button>
+            </div>
+          </section>
+          <section class="comments">
+            <div class="commnets-block">
+              <h2 class="commnets_block-title">Comments</h2>
+              <script id="comment-one-template" type="x-tmpl-mustache">
+                <article class="commnet__item">
+                  <p class="comment__author">
+                   by {{author}}
+                  </p>
+                 <p class="comment__title">{{text}}</p>
+                </article>
+              </script>
+            </div>
+            <div class="btn-comments">
+              <button class="btn-comments__item btn-comments__prev">prev</button>
+              <button class="btn-comments__item btn-commnets__new">make comment</button>
+              <button class="btn-comments__item btn-comments__next">next</button>
+            </div>
+          </section>
+    </script>
+    </header>
+    <script id="template-istudy_main" type="text/template">
+      <div class="container">
+      <main class="main-page">
+        <section class="feedback">
+          <div class="feedback__form_box">
+            <form class="feedback__form">
+              <div class="feedback__disable"></div>
+                <h2 class="feedback__title">Feedback</h2>
+                <span class="star">*</span>
+                <input class="feedback__input" type="text" id="name" name="name" placeholder="fullname" required>
+                <span class="star">*</span>
+                <input class="feedback__input" type="email" id="email" name="email" placeholder="email" required>
+                <span class="star">*</span>
+                <input class="feedback__input" type="url" id="image-url" name="image-url" placeholder="image-url">
+            
+                <div class="feedback__opinion">
+                    <p class="feedback__opinion-question">Your opinion:</p>
+                    <input class="feedback__radio" type="radio" id="negative" name="opinion" value="negative">
+                    <label class="feedback__label" for="negative">Bad</label>
+                    <input class="feedback__radio" type="radio" id="positive" name="opinion" value="positive" checked>
+                    <label class="feedback__label" for="positive">Good</label>
+                    <input class="feedback__radio" type="radio" id="amazing" name="opinion" value="amazing">
+                    <label class="feedback__label" for="amazing">Amazing</label>
+                </div>
+            
+                <div class="feedback__subscribe">
+                    <input class="feedback__checkbox" type="checkbox" id="subscribe" name="subscribe" checked>
+                    <label class="feedback__label" for="subscribe">Subscribe news</label>
+                </div>
+                  <input class="feedback__input" type="text" id="keywords" name="keywords" list="programming-courses-keywords" placeholder="keywords">
+                  <datalist id="programming-courses-keywords">
+                    <option value="Python Programming">
+                    <option value="JavaScript Tutorials">
+                    <option value="Java Courses">
+                    <option value="C# Training">
+                    <option value="Web Development">
+                    <option value="Data Science Workshops">
+                    <option value="Machine Learning Basics">
+                    <option value="Frontend Development Skills">
+                    <option value="Backend Solutions">
+                    <option value="Full Stack Development">
+                    <option value="Mobile App Creation">
+                    <option value="Game Development Techniques">
+                </datalist>
+                <span class="star">*</span>
+                <textarea class="feedback__textarea" id="comment" name="comment" placeholder="Write your comment" required></textarea>
+                <div class="feedback__button_box">
+                  <button class="feedback__button feedback__button--reset" type="reset">Reset</button>
+                  <button class="feedback__button feedback__button--submit" type="submit">Submit</button>
+                </div>
+                <div class="feedback__img-box">
+                  <img src="./img/feedback.png" alt="" class="feedback__img" width="300px" height="300px">
+                </div>
+            </form>
+            </div>
+          <button class="feedback__btn">Feedback</button>
+        </section>
+        <section class="course-highlights">
+          <h3 class="course-highlights__title">Course Highlights</h3>
+          <ul class="course-highlights__list">
+            <li class="course-highlights__item">
+              Hands-on projects to apply your knowledge.
+            </li>
+            <li class="course-highlights__item">
+              Expert instructors with real-world experience.
+            </li>
+            <li class="course-highlights__item">
+              Interactive lessons with peer discussions and feedback.
+            </li>
+            <li class="course-highlights__item">
+              Access to a vast library of resources and tools.
+            </li>
+          </ul>
+        </section>
+        <section class="testimonials">
+          <h3 class="testimonials__title">What Our Students Say</h3>
+          <blockquote class="testimonials__quote">
+            "ItStudy transformed my career. The courses are top-notch, and the
+            instructors are industry experts."
+            <cite>- Jane Doe, Web Developer</cite>
+          </blockquote>
+          <blockquote class="testimonials__quote">
+            "I was a complete beginner, and now I'm building my own web apps.
+            Thank you, ItStudy!"
+            <cite>- John Smith, Software Engineer</cite>
+          </blockquote>
+        </section>
+      </main>
+    </div>
+    </script>
+      <script id="template-technologies_main" type="text/template">
+        <main class="main-page">
+          <section class="feedback">
+            <div class="feedback__form_box">
+              <form class="feedback__form">
+                <div class="feedback__disable"></div>
+                  <h2 class="feedback__title">Feedback</h2>
+                    <span class="star">*</span>
+                    <input class="feedback__input" type="text" id="name" name="name" placeholder="fullname" required>
+                    <span class="star">*</span>
+                    <input class="feedback__input" type="email" id="email" name="email" placeholder="email" required>
+                    <span class="star">*</span>
+                    <input class="feedback__input" type="url" id="image-url" name="image-url" placeholder="image-url">
+              
+                  <div class="feedback__opinion">
+                      <p class="feedback__opinion-question">Your opinion:</p>
+                      <input class="feedback__radio" type="radio" id="negative" name="opinion" value="negative">
+                      <label class="feedback__label" for="negative">Bad</label>
+                      <input class="feedback__radio" type="radio" id="positive" name="opinion" value="positive" checked>
+                      <label class="feedback__label" for="positive">Good</label>
+                      <input class="feedback__radio" type="radio" id="amazing" name="opinion" value="amazing">
+                      <label class="feedback__label" for="amazing">Amazing</label>
+                  </div>
+              
+                  <div class="feedback__subscribe">
+                      <input class="feedback__checkbox" type="checkbox" id="subscribe" name="subscribe" checked>
+                      <label class="feedback__label" for="subscribe">Subscribe news</label>
+                  </div>
+                    <input class="feedback__input" type="text" id="keywords" name="keywords" list="programming-courses-keywords" placeholder="keywords">
+                    <datalist id="programming-courses-keywords">
+                      <option value="Python Programming">
+                      <option value="JavaScript Tutorials">
+                      <option value="Java Courses">
+                      <option value="C# Training">
+                      <option value="Web Development">
+                      <option value="Data Science Workshops">
+                      <option value="Machine Learning Basics">
+                      <option value="Frontend Development Skills">
+                      <option value="Backend Solutions">
+                      <option value="Full Stack Development">
+                      <option value="Mobile App Creation">
+                      <option value="Game Development Techniques">
+                  </datalist>
+                  <span class="star">*</span>
+                  <textarea class="feedback__textarea" id="comment" name="comment" placeholder="Write your comment" required></textarea>
+                  <div class="feedback__button_box">
+                    <button class="feedback__button feedback__button--reset" type="reset">Reset</button>
+                    <button class="feedback__button feedback__button--submit" type="submit">Submit</button>
+                  </div>
+                  <div class="feedback__img-box">
+                    <img src="../img/feedback.png" alt="" class="feedback__img" width="300px" height="300px">
+                  </div>
+              </form>
+              </div>
+            <button class="feedback__btn">Feedback</button>
+          </section>
+          <table class="benefits-table">
+            <caption class="benefits-table__caption">
+              Benefits of Learning Frontend Development
+            </caption>
+            <thead class="benefits-table__head">
+              <tr class="benefits-table__row">
+                <th class="benefits-table__header-cell">Benefit</th>
+                <th class="benefits-table__header-cell">Description</th>
+              </tr>
+            </thead>
+            <tbody class="benefits-table__body">
+              <tr class="benefits-table__row">
+                <td class="benefits-table__cell">Creativity</td>
+                <td class="benefits-table__cell">
+                  Frontend development allows you to bring designs to life and
+                  create visually appealing websites and applications.
+                </td>
+              </tr>
+              <tr class="benefits-table__row">
+                <td class="benefits-table__cell">High Demand</td>
+                <td class="benefits-table__cell">
+                  With the rise of the digital age, skilled frontend developers are
+                  in high demand in the job market.
+                </td>
+              </tr>
+              <tr class="benefits-table__row">
+                <td class="benefits-table__cell">Flexibility</td>
+                <td class="benefits-table__cell">
+                  Many frontend developers have the flexibility to work remotely,
+                  offering a better work-life balance.
+                </td>
+              </tr>
+              <tr class="benefits-table__row">
+                <td class="benefits-table__cell">Interactivity</td>
+                <td class="benefits-table__cell">
+                  Frontend development focuses on user experience, allowing you to
+                  create interactive and dynamic user interfaces.
+                </td>
+              </tr>
+              <tr class="benefits-table__row">
+                <td class="benefits-table__cell">Continuous Learning</td>
+                <td class="benefits-table__cell">
+                  The tech field is always evolving, ensuring that there's always
+                  something new to learn and explore.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <section class="salary-benefit">
+            <h3 class="salary-benefit__title">Salary Benefits</h3>
+            <ol class="salary-benefits__list">
+              <li class="salary-benefits__item">
+                High starting salary for entry-level professionals.
+              </li>
+              <li class="salary-benefits__item">
+                Opportunity for rapid career advancement and income growth.
+              </li>
+              <li class="salary-benefits__item">
+                Stable and regular income due to the high demand for the profession.
+              </li>
+            </ol>
+          </section>
+        </main>
+      </script>
+      <script id="template-curriculum_main" type="text/template">
+        <main class="main-page">
+          <section class="feedback">
+            <div class="feedback__form_box">
+              <form class="feedback__form">
+                <div class="feedback__disable"></div>
+                  <h2 class="feedback__title">Feedback</h2>
+                  <span class="star">*</span>
+                    <input class="feedback__input" type="text" id="name" name="name" placeholder="fullname" required>
+                    <span class="star">*</span>
+                    <input class="feedback__input" type="email" id="email" name="email" placeholder="email" required>
+                    <span class="star">*</span>
+                    <input class="feedback__input" type="url" id="image-url" name="image-url" placeholder="image-url">
+              
+                  <div class="feedback__opinion">
+                      <p class="feedback__opinion-question">Your opinion:</p>
+                      <input class="feedback__radio" type="radio" id="negative" name="opinion" value="negative">
+                      <label class="feedback__label" for="negative">Bad</label>
+                      <input class="feedback__radio" type="radio" id="positive" name="opinion" value="positive" checked>
+                      <label class="feedback__label" for="positive">Good</label>
+                      <input class="feedback__radio" type="radio" id="amazing" name="opinion" value="amazing">
+                      <label class="feedback__label" for="amazing">Amazing</label>
+                  </div>
+              
+                  <div class="feedback__subscribe">
+                      <input class="feedback__checkbox" type="checkbox" id="subscribe" name="subscribe" checked>
+                      <label class="feedback__label" for="subscribe">Subscribe news</label>
+                  </div>
+                    <input class="feedback__input" type="text" id="keywords" name="keywords" list="programming-courses-keywords" placeholder="keywords">
+                    <datalist id="programming-courses-keywords">
+                      <option value="Python Programming">
+                      <option value="JavaScript Tutorials">
+                      <option value="Java Courses">
+                      <option value="C# Training">
+                      <option value="Web Development">
+                      <option value="Data Science Workshops">
+                      <option value="Machine Learning Basics">
+                      <option value="Frontend Development Skills">
+                      <option value="Backend Solutions">
+                      <option value="Full Stack Development">
+                      <option value="Mobile App Creation">
+                      <option value="Game Development Techniques">
+                  </datalist>
+                  <span class="star">*</span>
+                  <textarea class="feedback__textarea" id="comment" name="comment" placeholder="Write your comment" required></textarea>
+                  <div class="feedback__button_box">
+                    <button class="feedback__button feedback__button--reset" type="reset">Reset</button>
+                    <button class="feedback__button feedback__button--submit" type="submit">Submit</button>
+                  </div>
+                  <div class="feedback__img-box">
+                    <img src="../img/feedback.png" alt="" class="feedback__img" width="300px" height="300px">
+                  </div>
+              </form>
+              </div>
+            <button class="feedback__btn">Feedback</button>
+          </section>
+          <table class="benefits-table">
+            <caption class="benefits-table__caption">
+              Core Modules in Our Curriculum
+            </caption>
+            <thead class="benefits-table__head">
+              <tr class="benefits-table__row">
+                <th class="benefits-table__header-cell">Module</th>
+                <th class="benefits-table__header-cell">Description</th>
+              </tr>
+            </thead>
+            <tbody class="benefits-table__body">
+              <tr class="benefits-table__row">
+                <td class="benefits-table__cell">Web Fundamentals</td>
+                <td class="benefits-table__cell">
+                  Understand the basics of HTML, CSS, and JavaScript. Build your
+                  first website from scratch.
+                </td>
+              </tr>
+              <tr class="benefits-table__row">
+                <td class="benefits-table__cell">Advanced JavaScript</td>
+                <td class="benefits-table__cell">
+                  Dive deeper into JavaScript ES6, asynchronous programming, and
+                  other modern JS features.
+                </td>
+              </tr>
+              <tr class="benefits-table__row">
+                <td class="benefits-table__cell">Frontend Frameworks</td>
+                <td class="benefits-table__cell">
+                  Learn popular frameworks like React, Vue, and Angular to build
+                  dynamic web applications.
+                </td>
+              </tr>
+              <tr class="benefits-table__row">
+                <td class="benefits-table__cell">Backend Development</td>
+                <td class="benefits-table__cell">
+                  Understand server-side programming, databases, and how to build
+                  full-stack applications.
+                </td>
+              </tr>
+              <tr class="benefits-table__row">
+                <td class="benefits-table__cell">Deployment & DevOps</td>
+                <td class="benefits-table__cell">
+                  Learn how to deploy your applications and understand the basics of
+                  cloud infrastructure and DevOps.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </main>
+      </script>
+      <script id="template-about_main" type="text/template">
+        <main class="main-page">
+          <section class="feedback">
+            <div class="feedback__form_box">
+              <form class="feedback__form">
+                <div class="feedback__disable"></div>
+                  <h2 class="feedback__title">Feedback</h2>
+                  <span class="star">*</span>
+                  <input class="feedback__input" type="text" id="name" name="name" placeholder="fullname" required>
+                  <span class="star">*</span>
+                  <input class="feedback__input" type="email" id="email" name="email" placeholder="email" required>
+                  <span class="star">*</span>
+                  <input class="feedback__input" type="url" id="image-url" name="image-url" placeholder="image-url">
+              
+                  <div class="feedback__opinion">
+                      <p class="feedback__opinion-question">Your opinion:</p>
+                      <input class="feedback__radio" type="radio" id="negative" name="opinion" value="negative">
+                      <label class="feedback__label" for="negative">Bad</label>
+                      <input class="feedback__radio" type="radio" id="positive" name="opinion" value="positive" checked>
+                      <label class="feedback__label" for="positive">Good</label>
+                      <input class="feedback__radio" type="radio" id="amazing" name="opinion" value="amazing">
+                      <label class="feedback__label" for="amazing">Amazing</label>
+                  </div>
+              
+                  <div class="feedback__subscribe">
+                      <input class="feedback__checkbox" type="checkbox" id="subscribe" name="subscribe" checked>
+                      <label class="feedback__label" for="subscribe">Subscribe news</label>
+                  </div>
+                    <input class="feedback__input" type="text" id="keywords" name="keywords" list="programming-courses-keywords" placeholder="keywords">
+                    <datalist id="programming-courses-keywords">
+                      <option value="Python Programming">
+                      <option value="JavaScript Tutorials">
+                      <option value="Java Courses">
+                      <option value="C# Training">
+                      <option value="Web Development">
+                      <option value="Data Science Workshops">
+                      <option value="Machine Learning Basics">
+                      <option value="Frontend Development Skills">
+                      <option value="Backend Solutions">
+                      <option value="Full Stack Development">
+                      <option value="Mobile App Creation">
+                      <option value="Game Development Techniques">
+                  </datalist>
+                  <span class="star">*</span>
+                  <textarea class="feedback__textarea" id="comment" name="comment" placeholder="Write your comment" required></textarea>
+                  <div class="feedback__button_box">
+                    <button class="feedback__button feedback__button--reset" type="reset">Reset</button>
+                    <button class="feedback__button feedback__button--submit" type="submit">Submit</button>
+                  </div>
+                  <div class="feedback__img-box">
+                    <img src="../img/feedback.png" alt="" class="feedback__img" width="300px" height="300px">
+                  </div>
+              </form>
+              </div>
+            <button class="feedback__btn">Feedback</button>
+          </section>
+          <section class="team-description">
+            <h3 class="team-description__title">Our Team</h3>
+            <p class="team-description__text">
+              Our team is made up of professionals with years of experience in the
+              IT field. We are constantly improving and keeping up with the latest
+              technology trends to provide our students with relevant and valuable
+              knowledge.
+            </p>
+            <p class="team-description__text">
+              Each of us has our own specialization, whether it's frontend
+              development, backend, design, or DevOps. This allows us to create
+              courses that cover all aspects of modern web development.
+            </p>
+          </section>
+          <section class="mission-vision">
+            <h3 class="mission-vision__title">Our Mission & Vision</h3>
+            <p class="mission-vision__text">
+              Our mission is to make IT education accessible to everyone. We aim to
+              create a society where every individual can receive quality education
+              and realize their potential in the field of technology.
+            </p>
+            <p class="mission-vision__text">
+              Our vision is to become the leading platform for online IT education,
+              where students can not only learn new technologies but also apply them
+              in practice, working on real projects.
+            </p>
+          </section>
+        </main>
+      </script>
+    <div id="main_block"></div>
+    <footer class="footer-page">
+      <p class="footer-page__title">ItStudy</p>
+    </footer>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.1/mustache.min.js"></script>
+</html>
