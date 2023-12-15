@@ -681,7 +681,7 @@
     <script>
       function onSignIn(googleUser) {
         // získame profil používateľa
-        var profile = googleUser.getBasicProfile();
+        let profile = googleUser.getBasicProfile();
 
         console.log('Úplné meno: ' + profile.getName());
         console.log('Meno: ' + profile.getGivenName());
@@ -690,7 +690,7 @@
         console.log("Email: " + profile.getEmail());
 
         // autorizačný token
-        var id_token = googleUser.getAuthResponse().id_token;
+        let id_token = googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
 
         // zmeníme content element
@@ -698,7 +698,7 @@
       }
 
       function signOut() {
-        var auth2 = gapi.auth2.getAuthInstance();
+        let auth2 = gapi.auth2.getAuthInstance();
         auth2.signOut().then(function () {
           alert("Boli ste odhlásený...");
           // znovu načítame stránku a zobrazíme tlačidlo pre prihlásenie
