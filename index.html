@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-signin-client_id" content="113737646929-4ocqgsid1qek758rrp46vdjos3l8tei9.apps.googleusercontent.com">
     <link rel="stylesheet" href="./css/normalize.css" media="screen" />
     <link rel="stylesheet" href="./css/style.css" media="screen" />
     <link rel="stylesheet" href="./css/printStyle.css" media="print" />
@@ -10,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script defer type="module" src="./js/renderFeedback.js"></script>
     <script defer type="module" src="./js/renderArticles.js"></script>
     <script defer type="module" src="./js/oneArticle/deleteOnArticle.js"></script>
@@ -20,6 +22,7 @@
     <script defer type="module" src="./js/main.js"></script>
     <script defer type="module" src="./js/oneArticle/renderComments.js"></script>
     <script defer type="module" src="./js/oneArticle/makeNewComment.js"></script>
+    <script defer src="./js/onSignIn.js"></script>
     <title>ItStudy</title>
   </head>
   <body class="body-page">
@@ -84,6 +87,7 @@
           <li class="nav-bar__item">
             <a href="#about" class="nav-bar__link">About us</a>
           </li>
+          <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
         </ul>
       </nav>
       <div id="intro_block"></div>

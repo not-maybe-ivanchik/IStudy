@@ -10,6 +10,10 @@
   margin: 0;
 }
 
+.g-signin2{
+  margin-right: 10px;
+}
+
 .body-page_black {
   overflow: hidden;
   animation: back 1s inherit;
